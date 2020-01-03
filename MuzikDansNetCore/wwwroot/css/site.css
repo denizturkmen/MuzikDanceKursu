@@ -22,7 +22,7 @@ body {
 
 /* Navbar SECTİON */
 .navbar {
-    border-bottom: #1886C7 solid 4px;
+    border-bottom: #e36d81 solid 4px;
 }
 
 .navbar-brand {
@@ -30,7 +30,7 @@ body {
 }
 
     .navbar-brand:hover {
-        color: #1886C7 !important;
+        color: #c42323 !important;
         transition: color .5s ease;
     }
 
@@ -45,7 +45,7 @@ body {
 }
 
     .nav-link:hover {
-        color: #1886C7 !important;
+        color: #c42323 !important;
     }
 
 
@@ -67,7 +67,7 @@ body {
 }
 
 #headerSextion span {
-    color: #1886C7 !important;
+    color: #c42323 !important;
 }
 
 .btn-outline-primary {
@@ -84,7 +84,7 @@ body {
 }
 
     #features h3:hover, #features .fa:hover {
-        color: #1886C7;
+        color: #c42323;
         cursor: pointer;
     }
 
@@ -93,13 +93,13 @@ body {
 }
 
     .feature-top:hover {
-        color: #1886C7;
+        color: #c42323;
     }
 
 /* HİSTORY SECTİON */
 
 #ourHistory h2 {
-    border-left: 6px solid #1886C7;
+    border-left: 6px solid #c42323;
     padding-left: 30px;
 }
 
@@ -169,7 +169,7 @@ body {
     right: 0;
     height: 100%;
     width: 100%;
-    background-color: #1886C7;
+    background-color: #c42323;
     opacity: 0;
     transition: 1s ease;
 }
