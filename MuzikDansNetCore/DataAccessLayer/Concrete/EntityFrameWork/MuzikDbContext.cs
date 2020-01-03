@@ -23,7 +23,7 @@ namespace MuzikDansNetCore.DataAccessLayer.Concrete.EntityFrameWork
       
         public DbSet<Lesson> Lessons { get; set; }
 
-       
+        public DbSet<Branch> Branches { get; set; }
 
     }
 }
