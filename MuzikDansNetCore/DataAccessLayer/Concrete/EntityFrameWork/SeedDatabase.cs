@@ -22,7 +22,7 @@ namespace MuzikDansNetCore.DataAccessLayer.Concrete.EntityFrameWork
 
                 if (!context.Lessons.Any())
                 {
-
+                    context.Lessons.AddRange(Lessons);
                 }
 
                 if (!context.Branches.Any())
@@ -35,13 +35,13 @@ namespace MuzikDansNetCore.DataAccessLayer.Concrete.EntityFrameWork
             context.SaveChanges();
         }
 
-        private static Teacher[] Teachers=
+        private static Teacher[] Teachers =
         {
             new Teacher() { TeacherName = "Deniz",Education = "Başkent Universite",Image = "1.jpg",BranchId = 1,LessonId = 1},
             new Teacher() { TeacherName = "Mehmet",Education = "Başkent Universite",Image = "2.jpg",BranchId = 2,LessonId = 2},
             new Teacher() { TeacherName = "Eren",Education = "Oka Universite",Image = "3.jpg",BranchId = 3,LessonId = 3},
             new Teacher() { TeacherName = "Besra",Education = "DokuzEylul Universite",Image = "1.jpg",BranchId = 4,LessonId = 2},
-            new Teacher() { TeacherName = "Deniz",Education = "Başkent Universite",Image = "1.jpg",BranchId = 3,LessonId = 4},
+            new Teacher() { TeacherName = "Merve",Education = "Gazi Universite",Image = "1.jpg",BranchId = 3,LessonId = 5},
         };
 
         private static Branch[] Branches =
@@ -53,8 +53,19 @@ namespace MuzikDansNetCore.DataAccessLayer.Concrete.EntityFrameWork
             new Branch() {Education = "Başkent", BranchName = "Sallıycak Kalmadı"},
 
         };
+
+        private static Lesson[] Lessons =
+        {
+            new Lesson() {LessonName = "Piyano", Description = "Ders Icerik", Images = "1.jpg"},
+            new Lesson() {LessonName = "Gitar", Description = "Ders Icerik", Images = "1.jpg"},
+            new Lesson() {LessonName = "Ork", Description = "Ders Icerik", Images = "1.jpg"},
+            new Lesson() {LessonName = "Keman", Description = "Ders Icerik", Images = "1.jpg"},
+            new Lesson() {LessonName = "Saz",Description = "Ders Icerik",Images = "1.jpg"},
+            new Lesson() {LessonName = "Çello",Description = "Ders Icerik",Images = "1.jpg"},
+            
+        };
     }
 
-   
+
 
 }
