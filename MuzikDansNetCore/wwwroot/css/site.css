@@ -1,56 +1,188 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Sticky footer styles
+﻿/* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+/* Navbar SECTİON */
+.navbar {
+    border-bottom: #1886C7 solid 4px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+    .navbar-brand:hover {
+        color: #1886C7 !important;
+        transition: color .5s ease;
+    }
+
+.bg-dark {
+    background-color: rgba(0,0,0, .8) !important;
+}
+
+.nav-link {
+    color: white !important;
+    text-transform: uppercase;
+    transition: color .5s ease;
+}
+
+    .nav-link:hover {
+        color: #1886C7 !important;
+    }
+
+
+
+/* HEADER SECTION */
+
+#headerSection {
+    background: url('/images/bg-12.jpg') no-repeat center center fixed;
+    background-size: auto;
+    height: 100vh;
+}
+
+#headerSextion .overlay {
+    background-color: rgba(0,0,0, .7);
+}
+
+#headerSextion .row {
+    height: 100vh;
+}
+
+#headerSextion span {
+    color: #1886C7 !important;
+}
+
+.btn-outline-primary {
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+/* FEATURES SECTİON */
+
+#features .fa {
+    font-size: 40px;
+}
+
+    #features h3:hover, #features .fa:hover {
+        color: #1886C7;
+        cursor: pointer;
+    }
+
+.feature-top {
+    transition: color .5s ease;
+}
+
+    .feature-top:hover {
+        color: #1886C7;
+    }
+
+/* HİSTORY SECTİON */
+
+#ourHistory h2 {
+    border-left: 6px solid #1886C7;
+    padding-left: 30px;
+}
+
+#ourHistory .col-md-6 {
+    display: inline;
+}
+
+#ourHistory .btn-outline-primary {
+    position: absolute;
+    bottom: 0;
+}
+
+#ourHistory p {
+    line-height: 24px;
+}
+
+/* TEAM SECTİON */
+
+
+/* TEAM SECTİON */
+
+#team .card {
+    border: none;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+    #team .card:hover {
+        opacity: 1;
+    }
+
+
+/* PORTFOLİA  SECTİON */
+
+#portfolia .col-md-3 {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+}
+
+#portfolia h4 {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+#portfolia.fa {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#portfolia p {
+    font-size: 14px;
+    font-weight: 300;
+}
+/* Önemli çünküc resim içine yazıyoruz*/
+.imageContainer {
+    position: relative;
+    cursor: pointer;
+}
+
+.imageOverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #1886C7;
+    opacity: 0;
+    transition: 1s ease;
+}
+
+.imageContainer:hover .imageOverlay {
+    opacity: .7;
+}
+
+.imageText {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }

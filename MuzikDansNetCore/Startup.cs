@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MuzikDansNetCore.Middlewares;
 
 namespace MuzikDansNetCore
 {
@@ -44,7 +45,7 @@ namespace MuzikDansNetCore
            
 
             app.UseStaticFiles();
-           
+            app.CustomStaticFiles();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

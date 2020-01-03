@@ -5,8 +5,14 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Include="node_modules\fontawesome\all.min.css" />
+    <Content Include="node_modules\fontawesome\fontawesome.css" />
+  </ItemGroup>
+
 
   <ItemGroup>
+    <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
@@ -20,6 +26,11 @@
     <Folder Include="DataAccessLayer\Concrete\" />
     <Folder Include="Models\" />
     <Folder Include="Identity\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="node_modules\fontawesome\all.min.js" />
   </ItemGroup>
 
 </Project>

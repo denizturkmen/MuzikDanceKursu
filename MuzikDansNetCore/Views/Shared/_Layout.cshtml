@@ -7,13 +7,39 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>_Layout</title>
+    <title>AnaSayfa</title>
+    <!-- Mobil Device-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Bootstrap css-->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <!--Style Css-->
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <!--LightBox Css-->
+    <link href="~/css/lightbox.css" rel="stylesheet" />
+
+    <!--Fontawesone Css-->
+    <link href="modules/fontawesome/all.min.css" rel="stylesheet" />
 </head>
 <body>
 
+    <partial name="_navbar" />
 
 
+    <!--Container yerleştir-->
     @RenderBody()
 
+
+
+    <partial name="_footer" />
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/modules/fontawesome/all.min.js"></script>
+    <script src="~/js/lightbox.js"></script>
 </body>
 </html>
