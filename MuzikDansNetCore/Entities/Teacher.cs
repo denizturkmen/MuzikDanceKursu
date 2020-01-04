@@ -19,11 +19,11 @@ namespace MuzikDansNetCore.Entities
 
         public int BranchId { get; set; }
         public Branch Branch { get; set; }
-      
 
-        public int LessonId { get; set; }
-        public Lesson Lesson { get; set; }  
-       
+
+        //public int LessonId { get; set; }
+        //public Lesson Lesson { get; set; }
+
 
     }
 }

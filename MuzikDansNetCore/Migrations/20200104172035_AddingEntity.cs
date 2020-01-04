@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MuzikDansNetCore.Migrations
 {
-    public partial class Entities : Migration
+    public partial class AddingEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Branch",
+                name: "Branches",
                 columns: table => new
                 {
                     BranchId = table.Column<int>(nullable: false)
@@ -18,7 +18,7 @@ namespace MuzikDansNetCore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Branch", x => x.BranchId);
+                    table.PrimaryKey("PK_Branches", x => x.BranchId);
                 });
 
             migrationBuilder.CreateTable(
@@ -45,23 +45,16 @@ namespace MuzikDansNetCore.Migrations
                     TeacherName = table.Column<string>(nullable: true),
                     Education = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
-                    BranchId = table.Column<int>(nullable: false),
-                    LessonId = table.Column<int>(nullable: false)
+                    BranchId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Teachers", x => x.TeacherId);
                     table.ForeignKey(
-                        name: "FK_Teachers_Branch_BranchId",
+                        name: "FK_Teachers_Branches_BranchId",
                         column: x => x.BranchId,
-                        principalTable: "Branch",
+                        principalTable: "Branches",
                         principalColumn: "BranchId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Teachers_Lessons_LessonId",
-                        column: x => x.LessonId,
-                        principalTable: "Lessons",
-                        principalColumn: "LessonId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -69,23 +62,18 @@ namespace MuzikDansNetCore.Migrations
                 name: "IX_Teachers_BranchId",
                 table: "Teachers",
                 column: "BranchId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Teachers_LessonId",
-                table: "Teachers",
-                column: "LessonId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Lessons");
+
+            migrationBuilder.DropTable(
                 name: "Teachers");
 
             migrationBuilder.DropTable(
-                name: "Branch");
-
-            migrationBuilder.DropTable(
-                name: "Lessons");
+                name: "Branches");
         }
     }
 }

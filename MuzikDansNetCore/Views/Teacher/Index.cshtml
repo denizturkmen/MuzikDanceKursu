@@ -1,0 +1,48 @@
+﻿@model TeacherListModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container" style="margin-top: 100px">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Teacher Admin List</h1>
+            <hr />
+            <p>
+                <a asp-controller="Teacher" asp-action="Create" class="btn btn-outline-primary">Create Teacher</a>
+            </p>
+        </div>
+        <table class="table table-bordered table-striped table-responsive-md">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Image</th>
+                    <th>TeacherName</th>
+                    <th>Education</th>
+                    <th style="width:180px"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var teacher in Model.Teachers)
+                {
+                    <tr>
+                        <td>@teacher.TeacherId</td>
+                        <td>
+                            <img src="~/images/@teacher.Image" alt="@teacher.TeacherName" style="width: 50px" />
+                        </td>
+                        <td>@teacher.TeacherName</td>
+                        <td>@teacher.Education</td>
+                        <td>
+                            <a href="/Teacher/Edit/@teacher.TeacherId" class="btn btn-primary btn-sm">Update</a> |
+                            <a href="/Teacher/Delete/@teacher.TeacherId" class="btn btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+</div>
+
+

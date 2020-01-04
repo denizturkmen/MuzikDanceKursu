@@ -9,20 +9,24 @@
     <!-- Mobil Device-->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>AnaSayfa</title>
- 
-   <!--Bootstrap css-->
+
+    <!--Bootstrap css-->
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 
-    <!--Style Css-->
-    <link href="~/css/site.css" rel="stylesheet" />
+    <!--Fontawesone Css-->
+    <link href="~/css/all.min.css" rel="stylesheet" />
 
     <!--LightBox Css-->
     <link href="~/css/lightbox.css" rel="stylesheet" />
 
-    <!--Fontawesone Css-->
-    <link href="~/css/all.min.css" rel="stylesheet" />
+    <!--Style Css-->
+    <link href="~/css/site.css" rel="stylesheet" />
+
+    <script src="~/js/scrollreveal.min.js"></script>
 </head>
 <body>
+
+
 
     <partial name="_navbar" />
 
@@ -34,6 +38,8 @@
 
     <partial name="_footer" />
 
+
+    @RenderSection("Validate", false)
 
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/js/popper.min.js"></script>

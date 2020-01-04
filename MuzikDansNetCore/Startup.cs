@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MuzikDansNetCore.Business.Abstract;
+using MuzikDansNetCore.Business.Concrete;
+using MuzikDansNetCore.DataAccessLayer.Abstract;
+using MuzikDansNetCore.DataAccessLayer.Concrete.EntityFrameWork;
 using MuzikDansNetCore.Middlewares;
 
 namespace MuzikDansNetCore
@@ -31,6 +35,12 @@ namespace MuzikDansNetCore
             //    options.MinimumSameSitePolicy = SameSiteMode.None;
             //});
 
+            services.AddScoped<ITeacherDal, EfCoreTeacherDal>();
+            services.AddScoped<ITeacherService, TeacherManager>();
+            services.AddScoped<IBranchDal, EfCoreBranchDal>();
+            services.AddScoped<IBranchService, BranchManager>();
+            services.AddScoped<ILessonDal, EfCoreLessonDal>();
+            services.AddScoped<ILessonService, LessonManager>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -41,11 +51,12 @@ namespace MuzikDansNetCore
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                SeedDatabase.Seed();
             }
-           
+
 
             app.UseStaticFiles();
-           // app.CustomStaticFiles();
+            // app.CustomStaticFiles();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

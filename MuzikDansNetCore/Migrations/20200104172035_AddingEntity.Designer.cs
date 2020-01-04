@@ -9,8 +9,8 @@ using MuzikDansNetCore.DataAccessLayer.Concrete.EntityFrameWork;
 namespace MuzikDansNetCore.Migrations
 {
     [DbContext(typeof(MuzikDbContext))]
-    [Migration("20200103184313_BranchTable")]
-    partial class BranchTable
+    [Migration("20200104172035_AddingEntity")]
+    partial class AddingEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,15 +64,11 @@ namespace MuzikDansNetCore.Migrations
 
                     b.Property<string>("Image");
 
-                    b.Property<int>("LessonId");
-
                     b.Property<string>("TeacherName");
 
                     b.HasKey("TeacherId");
 
                     b.HasIndex("BranchId");
-
-                    b.HasIndex("LessonId");
 
                     b.ToTable("Teachers");
                 });
@@ -82,11 +78,6 @@ namespace MuzikDansNetCore.Migrations
                     b.HasOne("MuzikDansNetCore.Entities.Branch", "Branch")
                         .WithMany("Teachers")
                         .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("MuzikDansNetCore.Entities.Lesson", "Lesson")
-                        .WithMany()
-                        .HasForeignKey("LessonId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

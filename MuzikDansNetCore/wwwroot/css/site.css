@@ -1,4 +1,8 @@
-﻿/* Sticky footer styles
+﻿.pt-100 {
+    padding-top:100px;
+}
+
+/* Sticky footer styles
 -------------------------------------------------- */
 html {
     position: relative;

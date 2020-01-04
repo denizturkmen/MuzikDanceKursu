@@ -1,6 +1,6 @@
 ﻿<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container">
-        <button class="navbar-toggler" data-toogle="collapse" data-target="#nvbCollapse">
+        <button class="navbar-toggler" type="button" data-toogle="collapse" data-target="#nvbCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a href="#" class="navbar-brand">
@@ -24,7 +24,7 @@
                     <a class="nav-link" href="#">Iletişim</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Teacher</a>
+                    <a class="nav-link" asp-controller="Teacher" asp-action="Index">Teacher</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Lesson</a>
@@ -39,6 +39,7 @@
                     <a href="#" class="nav-link">Login</a>
                 </li>
             </ul>
+
         </div>
     </div>
 </nav>

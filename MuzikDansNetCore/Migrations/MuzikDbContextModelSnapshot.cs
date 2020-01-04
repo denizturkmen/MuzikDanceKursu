@@ -62,15 +62,11 @@ namespace MuzikDansNetCore.Migrations
 
                     b.Property<string>("Image");
 
-                    b.Property<int>("LessonId");
-
                     b.Property<string>("TeacherName");
 
                     b.HasKey("TeacherId");
 
                     b.HasIndex("BranchId");
-
-                    b.HasIndex("LessonId");
 
                     b.ToTable("Teachers");
                 });
@@ -80,11 +76,6 @@ namespace MuzikDansNetCore.Migrations
                     b.HasOne("MuzikDansNetCore.Entities.Branch", "Branch")
                         .WithMany("Teachers")
                         .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("MuzikDansNetCore.Entities.Lesson", "Lesson")
-                        .WithMany()
-                        .HasForeignKey("LessonId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

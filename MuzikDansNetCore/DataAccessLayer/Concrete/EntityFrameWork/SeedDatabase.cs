@@ -37,11 +37,11 @@ namespace MuzikDansNetCore.DataAccessLayer.Concrete.EntityFrameWork
 
         private static Teacher[] Teachers =
         {
-            new Teacher() { TeacherName = "Deniz",Education = "Başkent Universite",Image = "1.jpg",BranchId = 1,LessonId = 1},
-            new Teacher() { TeacherName = "Mehmet",Education = "Başkent Universite",Image = "2.jpg",BranchId = 2,LessonId = 2},
-            new Teacher() { TeacherName = "Eren",Education = "Oka Universite",Image = "3.jpg",BranchId = 3,LessonId = 3},
-            new Teacher() { TeacherName = "Besra",Education = "DokuzEylul Universite",Image = "1.jpg",BranchId = 4,LessonId = 2},
-            new Teacher() { TeacherName = "Merve",Education = "Gazi Universite",Image = "1.jpg",BranchId = 3,LessonId = 5},
+            new Teacher() { TeacherName = "Deniz",Education = "Başkent Universite",Image = "1.jpg",BranchId = 1},
+            new Teacher() { TeacherName = "Mehmet",Education = "Başkent Universite",Image = "2.jpg",BranchId = 2},
+            new Teacher() { TeacherName = "Eren",Education = "Oka Universite",Image = "3.jpg",BranchId = 3},
+            new Teacher() { TeacherName = "Besra",Education = "DokuzEylul Universite",Image = "1.jpg",BranchId = 4},
+            new Teacher() { TeacherName = "Merve",Education = "Gazi Universite",Image = "1.jpg",BranchId = 3},
         };
 
         private static Branch[] Branches =

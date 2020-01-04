@@ -17,7 +17,5 @@ namespace MuzikDansNetCore.Entities
         public string Images { get; set; }
 
       
-
-
     }
 }
