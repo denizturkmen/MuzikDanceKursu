@@ -10,7 +10,7 @@ namespace MuzikDansNetCore.Models.Teacher
 {
     public class TeacherModel
     {
-        public int TeacherId { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Öğretmen ismi girilmesi mecburi alan")]
         [Display(Name = "Öğretmen Adi")]

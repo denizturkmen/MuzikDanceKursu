@@ -34,7 +34,10 @@
                         <td>@teacher.Education</td>
                         <td>
                             <a href="/Teacher/Edit/@teacher.TeacherId" class="btn btn-primary btn-sm">Update</a> |
-                            <a href="/Teacher/Delete/@teacher.TeacherId" class="btn btn-danger btn-sm">Delete</a>
+                            <form asp-controller="Teacher" asp-action="Delete" method="post" style="display:inline;">
+                                <input type="hidden" name="Id" value="@teacher.TeacherId" />
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 }

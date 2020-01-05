@@ -1,13 +1,7 @@
 ﻿@model TeacherModel
 
 @{
-    ViewData["Title"] = "Create";
-}
-
-@section Validate
-    {
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    ViewData["Title"] = "Edit";
 }
 
 <div class="container pt-100 mb-5">
@@ -15,26 +9,29 @@
         <div class="col-md-8">
             <h4>Create Teacher</h4>
             <hr />
-            <form asp-controller="Teacher" asp-action="Create" method="post">
+            <form asp-controller="Teacher" asp-action="Edit" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="All" class="text-danger"></div>
+                <input type="hidden" name="@Model.Id" value="@Model.Id" />
                 <div class="form-group row">
                     <label asp-for="TeacherName" class="col-md-3 col-form-label"></label>
                     <div class="col-md-9">
-                        <input asp-for="TeacherName" class="form-control" />
+                        <input asp-for="TeacherName" value="@Model.TeacherName" class="form-control" />
                         <span asp-validation-for="TeacherName"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label asp-for="Education" class="col-md-3 col-form-label"></label>
                     <div class="col-md-9">
-                        <input asp-for="Education" class="form-control" />
-                        <span asp-validation-for="Education" class="text-danger"></span>
+                        <input asp-for="Education" value="@Model.Education" class="form-control" />
+                        <span asp-validation-for="Education"  class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label asp-for="Image" class="col-md-3 col-form-label"></label>
                     <div class="col-md-9">
-                        <input asp-for="Image" class="form-control" />
+                        <input type="hidden" name="Image" value="@Model.Image" />
+                        <img src="~/images/@Model.Image" width="80" />
+                        <input type="file" name="file" value="" />
                         <span asp-validation-for="Image" class="text-danger"></span>
                     </div>
                 </div>
@@ -42,7 +39,7 @@
                 <div class="form-group row">
                     <label asp-for="BranchId" class="col-md-3 col-form-label"></label>
                     <div class="col-md-9">
-                        <select asp-for="BranchId" class="form-control" asp-items="ViewBag.BranchId"></select>
+                        <select asp-for="BranchId" value="@Model.BranchId" class="form-control" asp-items="ViewBag.BranchId"></select>
                         <span asp-validation-for="BranchId" class="text-danger"></span>
                     </div>
                 </div>
