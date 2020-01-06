@@ -46,7 +46,7 @@ namespace MuzikDansNetCore.Controllers
                     Description = model.Description
                 };
 
-                if (model.Images.Length>0) // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                if (model.Images.Length>0) 
                 {
                     entity.Images = model.Images.FileName;
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", model.Images.FileName);
