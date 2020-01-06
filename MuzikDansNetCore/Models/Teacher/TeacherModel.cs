@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace MuzikDansNetCore.Models.Teacher
 {
@@ -18,8 +19,9 @@ namespace MuzikDansNetCore.Models.Teacher
         [Display(Name = "Okul Adi")]
         public string Education { get; set; }
 
-       // [Required(ErrorMessage = "Image Alanı Zorunlu")]
+        //[Required(ErrorMessage = "Image Alanı Zorunlu")]
         [Display(Name = "Resim ")]
+        [DataType(DataType.Upload)]
         public string Image { get; set; }
 
         [Required(ErrorMessage = "Branch Alanı Zorunlu")]

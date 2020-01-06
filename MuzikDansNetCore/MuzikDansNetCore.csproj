@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="Models\Branch\" />
-    <Folder Include="Models\Lesson\" />
   </ItemGroup>
 
 </Project>
