@@ -46,11 +46,11 @@ namespace MuzikDansNetCore.DataAccessLayer.Concrete.EntityFrameWork
 
         private static Branch[] Branches =
         {
-            new Branch() {Education = "Başkent", BranchName = "Opera"},
-            new Branch() {Education = "Başkent", BranchName = "Turk Sanat Muziği"},
-            new Branch() {Education = "Başkent", BranchName = "Jazz"},
-            new Branch() {Education = "Başkent", BranchName = "Ortadoğu"},
-            new Branch() {Education = "Başkent", BranchName = "Sallıycak Kalmadı"},
+            new Branch() { BranchName = "Opera"},
+            new Branch() { BranchName = "Turk Sanat Muziği"},
+            new Branch() { BranchName = "Jazz"},
+            new Branch() { BranchName = "Ortadoğu"},
+            new Branch() {BranchName = "Sallıycak Kalmadı"},
 
         };
 

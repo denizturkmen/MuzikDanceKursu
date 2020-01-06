@@ -5,8 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MuzikDansNetCore.Business.Abstract;
+using MuzikDansNetCore.DataAccessLayer.Abstract;
 using MuzikDansNetCore.Entities;
 using MuzikDansNetCore.Models.Teacher;
 
@@ -23,7 +25,7 @@ namespace MuzikDansNetCore.Controllers
             _branchService = branchService;
         }
 
-        public IActionResult Index()
+        public IActionResult TeacherList()
         {
             return View(new TeacherListModel()
             {
@@ -39,19 +41,29 @@ namespace MuzikDansNetCore.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(TeacherModel model)
+        public async Task<IActionResult> Create(TeacherModel model, IFormFile file)
         {
             if (ModelState.IsValid)
             {
                 var entity = new Teacher()
                 {
                     TeacherName = model.TeacherName,
-                    Image = model.Image,
                     Education = model.Education,
                     BranchId = model.BranchId
                 };
+                if (file != null)
+                {
+                    entity.Image = file.FileName;
+
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", file.FileName);
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
+
                 _teacherService.Create(entity);
-                return RedirectToAction("Index");
+                return RedirectToAction("TeacherList");
             }
 
             ViewBag.BranchId = new SelectList(_branchService.GetAll(), "BranchId", "BranchName", model.BranchId);
@@ -111,21 +123,24 @@ namespace MuzikDansNetCore.Controllers
                 }
 
                 _teacherService.Update(entity);
-                return RedirectToAction("Index");
+                return RedirectToAction("TeacherList");
             }
 
             return View(model);
-
         }
 
         public IActionResult Delete(int id)
         {
             var entity = _teacherService.GetById(id);
+
             if (entity != null)
             {
                 _teacherService.Delete(entity);
             }
-            return RedirectToAction("Index");
+
+            return RedirectToAction("TeacherList");
+
         }
+
     }
 }

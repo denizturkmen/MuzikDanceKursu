@@ -56,7 +56,7 @@ namespace MuzikDansNetCore
 
 
             app.UseStaticFiles();
-            // app.CustomStaticFiles();
+            app.CustomStaticFiles();
             app.UseMvc(routes =>
             {
 

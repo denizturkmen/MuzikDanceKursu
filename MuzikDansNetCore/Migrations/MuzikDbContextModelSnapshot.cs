@@ -26,8 +26,6 @@ namespace MuzikDansNetCore.Migrations
 
                     b.Property<string>("BranchName");
 
-                    b.Property<string>("Education");
-
                     b.HasKey("BranchId");
 
                     b.ToTable("Branches");

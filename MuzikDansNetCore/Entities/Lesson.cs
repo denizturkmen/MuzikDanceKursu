@@ -12,6 +12,7 @@ namespace MuzikDansNetCore.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int  LessonId { get; set; }
+
         public string LessonName { get; set; }
         public string Description { get; set; }
         public string Images { get; set; }

@@ -4,6 +4,12 @@
     ViewData["Title"] = "Edit";
 }
 
+@section Validate
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
 <div class="container pt-100 mb-5">
     <div class="row">
         <div class="col-md-8">
@@ -23,7 +29,7 @@
                     <label asp-for="Education" class="col-md-3 col-form-label"></label>
                     <div class="col-md-9">
                         <input asp-for="Education" value="@Model.Education" class="form-control" />
-                        <span asp-validation-for="Education"  class="text-danger"></span>
+                        <span asp-validation-for="Education" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="form-group row">

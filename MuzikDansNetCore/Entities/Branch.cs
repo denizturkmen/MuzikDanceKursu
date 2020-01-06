@@ -13,7 +13,6 @@ namespace MuzikDansNetCore.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int BranchId { get; set; }
 
-        public string Education { get; set; }
         public string BranchName { get; set; }
         public List<Teacher> Teachers { get; set; }
 

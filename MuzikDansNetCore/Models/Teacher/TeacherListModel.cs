@@ -9,6 +9,5 @@ namespace MuzikDansNetCore.Models.Teacher
     public class TeacherListModel
     {
         public List<Entities.Teacher> Teachers { get; set; }
-
     }
 }

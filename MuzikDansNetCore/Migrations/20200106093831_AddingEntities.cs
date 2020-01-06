@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MuzikDansNetCore.Migrations
 {
-    public partial class AddingEntity : Migration
+    public partial class AddingEntities : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,6 @@ namespace MuzikDansNetCore.Migrations
                 {
                     BranchId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Education = table.Column<string>(nullable: true),
                     BranchName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

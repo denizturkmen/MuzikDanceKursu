@@ -9,8 +9,8 @@ using MuzikDansNetCore.DataAccessLayer.Concrete.EntityFrameWork;
 namespace MuzikDansNetCore.Migrations
 {
     [DbContext(typeof(MuzikDbContext))]
-    [Migration("20200104172035_AddingEntity")]
-    partial class AddingEntity
+    [Migration("20200106093831_AddingEntities")]
+    partial class AddingEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,8 +27,6 @@ namespace MuzikDansNetCore.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("BranchName");
-
-                    b.Property<string>("Education");
 
                     b.HasKey("BranchId");
 
