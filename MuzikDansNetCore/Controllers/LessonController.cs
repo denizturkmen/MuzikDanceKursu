@@ -37,7 +37,6 @@ namespace MuzikDansNetCore.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(LessonModel model)
         {
-            
             if (ModelState.IsValid)
             {
                 var entity = new Lesson()
@@ -63,6 +62,29 @@ namespace MuzikDansNetCore.Controllers
             return View();
         }
 
+        public IActionResult Edit(int? id)
+        {
+            if (id==null)
+            {
+                return NotFound();
+            }
+
+            var entity = _lessonService.GetById((int)id);
+            if (entity == null)
+            {
+                return NotFound();
+            }
+            var model = new LessonEdit()
+            {
+                Id = entity.LessonId,
+                LessonName = entity.LessonName,
+                Description = entity.Description,
+                Images = entity.Images
+               
+            };
+
+            return View(model);
+        }
 
     }
 }

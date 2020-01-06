@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 
 namespace MuzikDansNetCore.Models.Lesson
 {
-    public class LessonModel
+    public class LessonEdit
     {
-        
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Zorunlu")]
@@ -24,6 +22,6 @@ namespace MuzikDansNetCore.Models.Lesson
         [Required(ErrorMessage = "Resim ekle")]
         [Display(Name = "Resim Ekle")]
         //[DataType(DataType.Upload)]
-        public IFormFile Images { get; set; }
+        public string Images { get; set; }
     }
 }
