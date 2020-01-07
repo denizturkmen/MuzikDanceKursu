@@ -38,7 +38,14 @@ namespace MuzikDansNetCore
             //    options.MinimumSameSitePolicy = SameSiteMode.None;
             //});
 
-          
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationIdentityDbContext>()
+                .AddDefaultTokenProviders();
+
+
+            services.AddDbContext<ApplicationIdentityDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
+
             services.AddScoped<ITeacherDal, EfCoreTeacherDal>();
             services.AddScoped<ITeacherService, TeacherManager>();
             services.AddScoped<IBranchDal, EfCoreBranchDal>();
@@ -50,7 +57,7 @@ namespace MuzikDansNetCore
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -61,6 +68,8 @@ namespace MuzikDansNetCore
 
             app.UseStaticFiles();
             app.CustomStaticFiles();
+            app.UseAuthentication();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -79,6 +88,7 @@ namespace MuzikDansNetCore
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            SeedIdentity.Seed(userManager, roleManager, Configuration).Wait();
         }
     }
 }
