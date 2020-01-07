@@ -31,20 +31,15 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-controller="Branch" asp-action="BranchList">Branch</a>
                     </li>
-                }
-            </ul>
-            <ul class="navbar-nav ml-auto">
-
-                @if (User.Identity.IsAuthenticated)
-                {
                     <li class="nav-item">
-                        <a asp-controller="Account" asp-action="Manage" class="nav-link">
+                        <a asp-controller="Teacher" asp-action="TeacherList" class="nav-link">
                             @User.Identity.Name
                         </a>
                     </li>
                     <li class="nav-item">
                         <a asp-controller="Account" asp-action="Logout" class="nav-link">Logout</a>
                     </li>
+                   
                 }
                 else
                 {
@@ -53,6 +48,7 @@
                     </li>
                 }
             </ul>
+
         </div>
     </div>
 </nav>
