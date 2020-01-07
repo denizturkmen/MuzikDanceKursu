@@ -26,5 +26,20 @@ namespace MuzikDansNetCore.Business.Concrete
         {
             return _branchDal.GetById(id);
         }
+
+        public void Create(Branch entity)
+        {
+           _branchDal.Create(entity);
+        }
+
+        public void Delete(Branch entity)
+        {
+            _branchDal.Delete(entity);
+        }
+
+        public void Update(Branch entity)
+        {
+            _branchDal.Update(entity);
+        }
     }
 }

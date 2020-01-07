@@ -18,9 +18,4 @@
     <None Include="wwwroot\js\all.min.js" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Models\Branch\" />
-  </ItemGroup>
-
 </Project>

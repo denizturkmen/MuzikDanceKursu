@@ -10,5 +10,9 @@ namespace MuzikDansNetCore.Business.Abstract
     {
         List<Branch> GetAll();
         Branch GetById(int id);
+
+        void Create(Branch entity);
+        void Delete(Branch entity);
+        void Update(Branch entity);
     }
 }

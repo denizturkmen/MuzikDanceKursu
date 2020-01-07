@@ -63,7 +63,17 @@ namespace MuzikDansNetCore
             app.CustomStaticFiles();
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name:"branchEdit",
+                    template:"/branch/update",
+                    defaults: new { controller = "Branch", action = "BranchList" }
+                    );
 
+                routes.MapRoute(
+                    name: "branchEdit",
+                    template: "/branch/update/{id}",
+                    defaults: new { controller = "Branch", action = "edit" }
+                );
 
                 routes.MapRoute(
                     name: "default",
