@@ -19,9 +19,9 @@
         <div class="col-md-8">
             <h4>Create Lesson</h4>
             <hr />
-            <form asp-controller="Teacher" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <form asp-controller="Lesson" asp-action="Edit" method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="All" class="text-danger"></div>
-                <input type="hidden" name="@Model.Id" value="@Model.Id" />
+                <input type="hidden" name="Id" value="@Model.Id" />
                 <div class="form-group row">
                     <label asp-for="LessonName" class="col-md-3 col-form-label"></label>
                     <div class="col-md-9">
@@ -33,7 +33,7 @@
                 <div class="form-group row">
                     <label asp-for="Images" class="col-md-3 col-form-label"></label>
                     <div class="col-md-9">
-                        <input type="hidden" name="Image" value="@Model.Images" />
+                        <input type="hidden" name="Images" value="@Model.Images" />
                         <img src="~/images/@Model.Images" width="80" />
                         <input type="file" name="file" value="" />
                         <span asp-validation-for="Images" class="text-danger"></span>

@@ -14,29 +14,32 @@
             <hr />
             <table class="table table-striped table-hover table-bordered">
                 <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Images</th>
-                    <th>Lesson Name</th>
-                    <th>Description</th>
-                    <th style="width: 180px"></th>
-                </tr>
+                    <tr>
+                        <th>Id</th>
+                        <th>Images</th>
+                        <th>Lesson Name</th>
+                        <th>Description</th>
+                        <th style="width: 180px"></th>
+                    </tr>
                 </thead>
                 <tbody>
                     @foreach (var lesson in Model.Lessons)
                     {
-                    <tr>
-                        <td>@lesson.LessonId</td>
-                        <td>
-                            <img src="~/images/@lesson.Images" alt="@lesson.LessonName" width="60" />
-                        </td>
-                        <td>@lesson.LessonName</td>
-                        <td>@lesson.Description</td>
-                        <td>
-                            <a href="/lesson/edit/@lesson.LessonId" class="btn btn-primary btn-sm">Update</a> |
-                            <a href="/lesson/delete/@lesson.LessonId" class="btn btn-danger btn-sm">Delete</a>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>@lesson.LessonId</td>
+                            <td>
+                                <img src="~/images/@lesson.Images" alt="@lesson.LessonName" width="60" />
+                            </td>
+                            <td>@lesson.LessonName</td>
+                            <td>@lesson.Description</td>
+                            <td>
+                                <a href="/lesson/edit/@lesson.LessonId" class="btn btn-primary btn-sm">Update</a> |
+                                <form action="lesson/delete/@lesson.LessonId" method="post" style="display: inline">
+                                    <input type="hidden" name="Id" value="@lesson.LessonId" />
+                                    <a href="/lesson/delete/@lesson.LessonId" class="btn btn-danger btn-sm">Delete</a>
+                                </form>
+                            </td>
+                        </tr>
                     }
                 </tbody>
 

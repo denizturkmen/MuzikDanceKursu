@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MuzikDansNetCore.Identity
 {
-    //public class ApplicationIdentityDbContext : IdentityDbContext<ApplicationUser>
-    //{
+    public class ApplicationIdentityDbContext : IdentityDbContext<ApplicationUser>
+    {
 
-    //}
+    }
 }

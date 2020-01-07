@@ -5,13 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MuzikDansNetCore.Business.Abstract;
 using MuzikDansNetCore.Business.Concrete;
 using MuzikDansNetCore.DataAccessLayer.Abstract;
 using MuzikDansNetCore.DataAccessLayer.Concrete.EntityFrameWork;
+using MuzikDansNetCore.Identity;
 using MuzikDansNetCore.Middlewares;
 
 namespace MuzikDansNetCore
@@ -35,6 +38,7 @@ namespace MuzikDansNetCore
             //    options.MinimumSameSitePolicy = SameSiteMode.None;
             //});
 
+          
             services.AddScoped<ITeacherDal, EfCoreTeacherDal>();
             services.AddScoped<ITeacherService, TeacherManager>();
             services.AddScoped<IBranchDal, EfCoreBranchDal>();

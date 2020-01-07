@@ -45,11 +45,11 @@ namespace MuzikDansNetCore.Controllers
                     Description = model.Description
                 };
 
-                if (model.Images.Length>0) 
+                if (model.Images.Length > 0)
                 {
                     entity.Images = model.Images.FileName;
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", model.Images.FileName);
-                    using (var stream = new FileStream(path,FileMode.Create))
+                    using (var stream = new FileStream(path, FileMode.Create))
                     {
                         await model.Images.CopyToAsync(stream);
                     }
@@ -59,12 +59,12 @@ namespace MuzikDansNetCore.Controllers
 
             }
 
-            return View();
+            return View(model);
         }
 
         public IActionResult Edit(int? id)
         {
-            if (id==null)
+            if (id == null)
             {
                 return NotFound();
             }
@@ -80,11 +80,55 @@ namespace MuzikDansNetCore.Controllers
                 LessonName = entity.LessonName,
                 Description = entity.Description,
                 Images = entity.Images
-               
+
             };
 
             return View(model);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(LessonEdit model,IFormFile file)
+        {
+            if (ModelState.IsValid)
+            {
+                var entity = _lessonService.GetById(model.Id);
+                if (entity == null)
+                {
+                    return NotFound();
+                }
+
+                entity.LessonName = model.LessonName;
+                entity.Description = model.Description;
+                if (file != null)
+                {
+                    entity.Images = file.FileName;
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", file.FileName);
+                    using (var stream = new FileStream(path,FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
+
+
+                _lessonService.Update(entity);
+                return RedirectToAction("LessonList");
+            }
+
+            return View(model);
+
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var entity = _lessonService.GetById(id);
+            if (entity!=null)
+            {
+                _lessonService.Delete(entity);
+            }
+
+            return RedirectToAction("LessonList");
+        }
+
 
     }
 }
