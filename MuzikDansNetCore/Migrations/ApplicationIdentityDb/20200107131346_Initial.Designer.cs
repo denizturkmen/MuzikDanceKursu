@@ -10,7 +10,7 @@ using MuzikDansNetCore.Identity;
 namespace MuzikDansNetCore.Migrations.ApplicationIdentityDb
 {
     [DbContext(typeof(ApplicationIdentityDbContext))]
-    [Migration("20200107122146_Initial")]
+    [Migration("20200107131346_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

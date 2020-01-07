@@ -9,8 +9,7 @@ namespace MuzikDansNetCore.Identity
 {
     public static class SeedIdentity
     {
-        public static async Task Seed(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager,
-            IConfiguration configuration)
+        public static async Task Seed(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
             var username = configuration["Data:AdminUser:username"];
             var email = configuration["Data:AdminUser:email"];
@@ -26,7 +25,8 @@ namespace MuzikDansNetCore.Identity
                     UserName = username,
                     Email = email,
                     FullName = "Admin User",
-                    EmailConfirmed = true
+                    EmailConfirmed = true,
+                    PhoneNumber = "05325698574"
                 };
 
                 var result = await userManager.CreateAsync(user, password);
@@ -38,3 +38,5 @@ namespace MuzikDansNetCore.Identity
         }
     }
 }
+
+

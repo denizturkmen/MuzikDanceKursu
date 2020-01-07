@@ -21,12 +21,11 @@ namespace MuzikDansNetCore
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; set; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
-
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -42,9 +41,51 @@ namespace MuzikDansNetCore
                 .AddEntityFrameworkStores<ApplicationIdentityDbContext>()
                 .AddDefaultTokenProviders();
 
-
+            //Database Connection
             services.AddDbContext<ApplicationIdentityDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
+
+            //Kullanıcı ile ilgili kısıtlamalar
+            services.Configure<IdentityOptions>(options =>
+            {
+                // password
+                options.Password.RequireDigit = true; //sayısal değer olsun
+                options.Password.RequireLowercase = true; //küçük harf içersin
+                options.Password.RequiredLength = 6; //minumun uzunluğu
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+
+                //Lock
+                options.Lockout.MaxFailedAccessAttempts = 5; //5 yanlıştan sonra kilitler
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5); // ne kadar kilitliyeceği
+                options.Lockout.AllowedForNewUsers = true; //yeni kullanıcılar içinde geçerli lock
+
+                // options.User.AllowedUserNameCharacters = ""; // özel karakterler belirleyebilirsin alfabeden
+                options.User.RequireUniqueEmail = false;
+
+                options.SignIn.RequireConfirmedEmail = true; // onay maili gelsin
+                options.SignIn.RequireConfirmedPhoneNumber = false; // onay telefona gelsin
+            });
+
+            //Cookie ayarlarları(tarayıcda tutulan)
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/account/login";
+                options.LogoutPath = "/account/logout";
+                options.AccessDeniedPath = "/account/accessdenied";
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(10); // tarayıcıda ne kadar süre kalsın
+                options.SlidingExpiration = true;
+
+                options.Cookie = new CookieBuilder
+                {
+                    HttpOnly = true,
+                    Name = "MuzikDance.Cookie",
+                    //Csrf engellemek için ama controller tarafında validate et token ı
+                    SameSite = SameSiteMode.Strict // sadece o site için geçerli(Strict)
+                };
+
+            });
+
 
             services.AddScoped<ITeacherDal, EfCoreTeacherDal>();
             services.AddScoped<ITeacherService, TeacherManager>();
@@ -73,8 +114,8 @@ namespace MuzikDansNetCore
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name:"branchEdit",
-                    template:"/branch/update",
+                    name: "branchEdit",
+                    template: "/branch/update",
                     defaults: new { controller = "Branch", action = "BranchList" }
                     );
 
@@ -88,6 +129,7 @@ namespace MuzikDansNetCore
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            //Identiy SEED
             SeedIdentity.Seed(userManager, roleManager, Configuration).Wait();
         }
     }
