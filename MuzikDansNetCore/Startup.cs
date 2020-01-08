@@ -127,7 +127,13 @@ namespace MuzikDansNetCore
 
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}"
+                );
+
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=MailSender}/{action=SendEmail}");
+
             });
             //Identiy SEED
             SeedIdentity.Seed(userManager, roleManager, Configuration).Wait();

@@ -1,4 +1,5 @@
-﻿
+﻿@model EmailModel
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -101,7 +102,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="card text-center">
-                    <div class="card-block">
+                    <div class="card-block team1">
                         <img src="~/images//person.jpg" class="img-fluid rounded-circle my-4">
                         <h3>John Doe</h3>
                         <h5 class="text-muted">CEO</h5>
@@ -110,15 +111,15 @@
                         <div class="d-flex flex-row justify-content-center">
 
                             <div class="p-4">
-                                <a href="#"><i class="fab fa-facebook fa-2x text-danger"></i> </a>
+                                <a href="#"><i class="fab fa-facebook fa-2x "></i> </a>
                             </div>
 
                             <div class="p-4">
-                                <a href="#"><i class="fab fa-twitter fa-2x text-danger"></i> </a>
+                                <a href="#"><i class="fab fa-twitter fa-2x "></i> </a>
                             </div>
 
                             <div class="p-4">
-                                <a href="#"><i class="fab fa-linkedin fa-2x text-danger"></i> </a>
+                                <a href="#"><i class="fab fa-linkedin fa-2x "></i> </a>
                             </div>
                         </div>
                     </div>
@@ -126,7 +127,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card text-center">
-                    <div class="card-block">
+                    <div class="card-block team2">
                         <img src="~/images//person.jpg" class="img-fluid rounded-circle my-4">
                         <h3>John Doe</h3>
                         <h5 class="text-muted">CEO</h5>
@@ -135,15 +136,15 @@
                         <div class="d-flex flex-row justify-content-center">
 
                             <div class="p-4">
-                                <a href="#"><i class="fab fa-facebook fa-2x text-danger"></i> </a>
+                                <a href="#"><i class="fab fa-facebook fa-2x "></i> </a>
                             </div>
 
                             <div class="p-4">
-                                <a href="#"><i class="fab fa-twitter fa-2x text-danger"></i> </a>
+                                <a href="#"><i class="fab fa-twitter fa-2x "></i> </a>
                             </div>
 
                             <div class="p-4">
-                                <a href="#"><i class="fab fa-linkedin fa-2x text-danger"></i> </a>
+                                <a href="#"><i class="fab fa-linkedin fa-2x "></i> </a>
                             </div>
                         </div>
                     </div>
@@ -151,7 +152,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card text-center">
-                    <div class="card-block">
+                    <div class="card-block team3">
                         <img src="~/images//person.jpg" class="img-fluid rounded-circle my-4">
                         <h3>John Doe</h3>
                         <h5 class="text-muted">CEO</h5>
@@ -160,15 +161,15 @@
                         <div class="d-flex flex-row justify-content-center">
 
                             <div class="p-4">
-                                <a href="#"><i class="fab fa-facebook fa-2x text-danger"></i> </a>
+                                <a href="#"><i class="fab fa-facebook fa-2x "></i> </a>
                             </div>
 
                             <div class="p-4">
-                                <a href="#"><i class="fab fa-twitter fa-2x text-danger"></i> </a>
+                                <a href="#"><i class="fab fa-twitter fa-2x "></i> </a>
                             </div>
 
                             <div class="p-4">
-                                <a href="#"><i class="fab fa-linkedin fa-2x text-danger"></i> </a>
+                                <a href="#"><i class="fab fa-linkedin fa-2x "></i> </a>
                             </div>
                         </div>
                     </div>
@@ -176,7 +177,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card text-center">
-                    <div class="card-block">
+                    <div class="card-block team4">
                         <img src="~/images//person.jpg" class="img-fluid rounded-circle my-4">
                         <h3>John Doe</h3>
                         <h5 class="text-muted">CEO</h5>
@@ -185,15 +186,15 @@
                         <div class="d-flex flex-row justify-content-center">
 
                             <div class="p-4">
-                                <a href="#"><i class="fab fa-facebook fa-2x text-danger"></i> </a>
+                                <a href="#"><i class="fab fa-facebook fa-2x "></i> </a>
                             </div>
 
                             <div class="p-4">
-                                <a href="#"><i class="fab fa-twitter fa-2x text-danger"></i> </a>
+                                <a href="#"><i class="fab fa-twitter fa-2x "></i> </a>
                             </div>
 
                             <div class="p-4">
-                                <a href="#"><i class="fab fa-linkedin fa-2x text-danger"></i> </a>
+                                <a href="#"><i class="fab fa-linkedin fa-2x "></i> </a>
                             </div>
                         </div>
                     </div>
@@ -287,54 +288,53 @@
                 <p>555 444 333 22</p>
                 <div class="d-flex flex-row">
                     <div class="p-2">
-                        <a href="#"><i class="fab fa-facebook fa-2x text-danger"></i> </a>
+                        <a href="#"><i class="fab fa-facebook fa-2x "></i> </a>
                     </div>
                     <div class="p-2">
-                        <a href="#"><i class="fab fa-twitter fa-2x text-danger"></i> </a>
+                        <a href="#"><i class="fab fa-twitter fa-2x "></i> </a>
                     </div>
                     <div class="p-2">
-                        <a href="#"><i class="fab fa-linkedin fa-2x text-danger"></i> </a>
+                        <a href="#"><i class="fab fa-linkedin fa-2x "></i> </a>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-6">
-                <form>
-                    <div class="form-group">
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-text">
-                                <i class="far fa-user"></i>
-                            </span>
-                            <input class="form-control" type="text" placeholder="Name">
-                        </div>
+                <form asp-controller="Home" asp-action="Contact" method="post">
+                <div class="form-group">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text">
+                            <i class="far fa-user"></i>
+                        </span>
+                        <input  asp-for="Name" class="form-control" type="text" placeholder="Name">
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-text">
-                                <i class="fa fa-envelope"></i>
-                            </span>
-                            <input class="form-control" type="text" placeholder="EMail">
-                        </div>
+                <div class="form-group">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                        <input   asp-for="Email"  class="form-control" type="text" placeholder="EMail">
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <div class="input-group input-group-md">
-                            <span class="input-group-text">
-                                <i class="fas fa-pen-square"></i>
-                            </span>
-                            <textarea id="deniz" rows="8" class="form-control" placeholder="Message"></textarea>
-                        </div>
+                <div class="form-group">
+                    <div class="input-group input-group-md">
+                        <span class="input-group-text">
+                            <i class="fas fa-pen-square"></i>
+                        </span>
+                        <textarea asp-for="Message" rows="8" class="form-control" placeholder="Message"></textarea>
                     </div>
+                </div>
 
-                    <input type="submit" value="submit" class="btn btn-danger btn-block">
-
+                <input type="submit" value="submit" class="btn btn-primary btn-block">
                 </form>
 
             </div>
 
         </div>
-    </div>
+    </div>  
 </section>
 
 
@@ -342,10 +342,76 @@
     window.sr = new ScrollReveal();
     sr.reveal('.headerAnimasyon',
         {
-            duration : 5000,
-            origin:'bottom'
+            duration: 3000,
+            origin: "bottom"
         });
+    sr.reveal("#Features",
+        {
+            duration: 3000
+        });
+    sr.reveal(".historyLeft",
+        {
+            duration: 3000,
+            origin: "left",
+            viewFactor: 0.2
+        });
+    sr.reveal(".historyRight",
+        {
+            duration: 3000,
+            origin: "right",
+            viewFactor: 0.2
+        });
+    sr.reveal('.team1', {
+        duration: 3000,
+        origin: 'left',
+        viewFactor: 0.2
+    });
+    sr.reveal('.team2', {
+        duration: 3000,
+        delay: 1000,
+        origin: 'left',
+        viewFactor: 0.2
+    });
+    sr.reveal('.team3', {
+        duration: 3000,
+        delay: 2000,
+        origin: 'left',
+        viewFactor: 0.2
+    });
+    sr.reveal('.team4', {
+        duration: 3000,
+        delay: 3000,
+        origin: 'left',
+        viewFactor: 0.2
+    });
 </script>
+
+
+<script>
+    function SendEmail(){
+        $.ajax(
+            {
+                type: "POST",
+                url: '@Url.Action("SendEmail", "MailSender")',
+                data: {
+                    Name: $("#name").val(),
+                    Email: $("#email").val(),
+                    Message: $("#message").val()
+                },
+                error: function (result) {
+                    console.log(result);
+                },
+                success: function (result) {
+                    alert(result);
+                    $("#name").val("");
+                    $("#email").val("");
+                    $("#message").val("");
+                }
+            });
+    }
+</script>
+
+
 
 
 
