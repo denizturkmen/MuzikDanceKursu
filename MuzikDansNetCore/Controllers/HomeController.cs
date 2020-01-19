@@ -22,7 +22,7 @@ namespace MuzikDansNetCore.Controllers
         [HttpPost]
         public IActionResult Contact(EmailModel model)
         {
-            string context = "<br>Name : " + model.Name;
+            string context = "<br> Name : " + model.Name;
             context += "<br> Email : " + model.Email;
             context += "<br> Message :" + model.Message;
 

@@ -288,13 +288,13 @@
                 <p>555 444 333 22</p>
                 <div class="d-flex flex-row">
                     <div class="p-2">
-                        <a href="#"><i class="fab fa-facebook fa-2x "></i> </a>
+                        <a href="#"><i class="fab fa-facebook fa-2x ml-3"></i> </a>
                     </div>
                     <div class="p-2">
-                        <a href="#"><i class="fab fa-twitter fa-2x "></i> </a>
+                        <a href="#"><i class="fab fa-twitter fa-2x  ml-3"></i> </a>
                     </div>
                     <div class="p-2">
-                        <a href="#"><i class="fab fa-linkedin fa-2x "></i> </a>
+                        <a href="#"><i class="fab fa-linkedin fa-2x  ml-3"></i> </a>
                     </div>
                 </div>
             </div>
@@ -302,18 +302,18 @@
             <div class="col-lg-6">
                 <form asp-controller="Home" asp-action="Contact" method="post">
                 <div class="form-group">
-                    <div class="input-group input-group-lg">
+                    <div class="input-group input-group-md">
                         <span class="input-group-text">
-                            <i class="far fa-user"></i>
+                            <i class="far fa-user fa-1x"></i>
                         </span>
                         <input  asp-for="Name" class="form-control" type="text" placeholder="Name">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="input-group input-group-lg">
+                    <div class="input-group input-group-md">
                         <span class="input-group-text">
-                            <i class="fa fa-envelope"></i>
+                            <i class="fas fa-envelope-open-text fa-1x"></i>
                         </span>
                         <input   asp-for="Email"  class="form-control" type="text" placeholder="EMail">
                     </div>
@@ -322,7 +322,7 @@
                 <div class="form-group">
                     <div class="input-group input-group-md">
                         <span class="input-group-text">
-                            <i class="fas fa-pen-square"></i>
+                            <i class="far fa-envelope fa-1x"></i>
                         </span>
                         <textarea asp-for="Message" rows="8" class="form-control" placeholder="Message"></textarea>
                     </div>

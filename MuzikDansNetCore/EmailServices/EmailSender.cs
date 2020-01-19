@@ -10,11 +10,10 @@ using Microsoft.Extensions.Configuration;
 
 namespace MuzikDansNetCore.EmailServices
 {
-    public class EmailSender
+    public class EmailSender 
     {
         public static bool SendMail(string FromAdress, string ToAddress, string subject, string context)
         {
-
             try
             {
                 var builder = new ConfigurationBuilder()
@@ -26,7 +25,7 @@ namespace MuzikDansNetCore.EmailServices
                 var port = int.Parse(configuration["Gmail:Port"]);
                 var username = configuration["Gmail:Username"];
                 var password = configuration["Gmail:Password"];
-                var enable = bool.Parse(configuration["Gmail:SMTP:starttls:Enable"]);
+                var enable = bool.Parse(configuration["Gmail:SMTP:Starttls:Enable"]);
 
                 var smtp = new SmtpClient()
                 {
@@ -53,6 +52,7 @@ namespace MuzikDansNetCore.EmailServices
 
 
         }
+
 
         //public string SendEmail(string Name, string Email, string Message)
         //{

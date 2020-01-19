@@ -28,8 +28,7 @@
                 <div class="form-group row">
                     <label asp-for="Image" class="col-md-2 col-form-label"></label>
                     <div class="col-md-8">
-
-                        <input type="file" name="file" value="" />
+                        <input asp-for="Image" name="Image" type="file"/>
                         <span asp-validation-for="Image" class="text-danger"></span>
                     </div>
                 </div>
@@ -54,7 +53,7 @@
 
                 <div class="form-group row">
                     <div class="col-md-8 offset-2">
-                        <button class="btn btn-primary">Kaydet</button>
+                        <button class="btn btn-primary">Kaydet</button> |
                         <a asp-controller="Teacher" asp-action="TeacherList" class="btn btn-primary">Listeye Geri Dön</a>
                     </div>
                 </div>

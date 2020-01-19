@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace MuzikDansNetCore.Models.Teacher
 {
-    public class TeacherModel
+    public class TeacherEdit
     {
         public int Id { get; set; }
 
@@ -19,10 +19,10 @@ namespace MuzikDansNetCore.Models.Teacher
         [Display(Name = "Okul Adi")]
         public string Education { get; set; }
 
-        [Required(ErrorMessage = "Resim ekle")]
-        [Display(Name = "Resim Ekle")]
+        //[Required(ErrorMessage = "Image Alanı Zorunlu")]
+        [Display(Name = "Resim ")]
         [DataType(DataType.Upload)]
-        public IFormFile Image { get; set; }
+        public string Image { get; set; }
 
         [Required(ErrorMessage = "Branch Alanı Zorunlu")]
         public int BranchId { get; set; }

@@ -43,7 +43,7 @@ namespace MuzikDansNetCore.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(TeacherModel model, IFormFile file)
+        public async Task<IActionResult> Create(TeacherModel model)
         {
             if (ModelState.IsValid)
             {
@@ -53,14 +53,13 @@ namespace MuzikDansNetCore.Controllers
                     Education = model.Education,
                     BranchId = model.BranchId
                 };
-                if (file != null)
+                if (model.Image.Length > 0)
                 {
-                    entity.Image = file.FileName;
-
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", file.FileName);
+                    entity.Image = model.Image.FileName;
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", model.Image.FileName);
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
-                        await file.CopyToAsync(stream);
+                        await model.Image.CopyToAsync(stream);
                     }
                 }
 
@@ -86,7 +85,7 @@ namespace MuzikDansNetCore.Controllers
             {
                 return NotFound();
             }
-            var model = new TeacherModel()
+            var model = new TeacherEdit()
             {
                 Id = entity.TeacherId,
                 TeacherName = entity.TeacherName,

@@ -23,7 +23,7 @@ namespace MuzikDansNetCore.Models.Lesson
 
         [Required(ErrorMessage = "Resim ekle")]
         [Display(Name = "Resim Ekle")]
-        //[DataType(DataType.Upload)]
+        [DataType(DataType.Upload)]
         public IFormFile Images { get; set; }
     }
 }
