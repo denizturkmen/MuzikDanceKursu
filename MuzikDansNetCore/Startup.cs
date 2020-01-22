@@ -21,6 +21,8 @@ namespace MuzikDansNetCore
 {
     public class Startup
     {
+
+        //Deneme
         public IConfiguration Configuration { get; set; }
         public Startup(IConfiguration configuration)
         {
