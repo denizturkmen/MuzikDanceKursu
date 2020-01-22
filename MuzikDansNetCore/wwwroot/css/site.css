@@ -83,14 +83,11 @@ body {
 
 /* FEATURES SECTİON */
 
-#features .fa {
-    font-size: 40px;
-}
 
-    #features h3:hover, #features .fa:hover {
-        color: #c42323;
-        cursor: pointer;
-    }
+#features h3:hover, #features .fa:hover {
+    color: #c42323;
+    cursor: pointer;
+}
 
 .feature-top {
     transition: color .5s ease;

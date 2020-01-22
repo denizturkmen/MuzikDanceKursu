@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MuzikDansNetCore.Models.Email;
-
+using MuzikDansNetCore.Models.Lesson;
 
 namespace MuzikDansNetCore.Models.Teacher
 {
@@ -13,7 +13,8 @@ namespace MuzikDansNetCore.Models.Teacher
 
         public EmailModel EmailModel { get; set; }
 
+
     }
-   
+
 
 }

@@ -37,25 +37,27 @@ namespace MuzikDansNetCore.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(LessonModel model)
+        public IActionResult Create(LessonModel model)
         {
             if (ModelState.IsValid)
             {
                 var entity = new Lesson()
                 {
                     LessonName = model.LessonName,
-                    Description = model.Description
+                    Description = model.Description,
+                    Images = model.Images
+                    
                 };
 
-                if (model.Images.Length > 0)
-                {
-                    entity.Images = model.Images.FileName;
-                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", model.Images.FileName);
-                    using (var stream = new FileStream(path, FileMode.Create))
-                    {
-                        await model.Images.CopyToAsync(stream);
-                    }
-                }
+                //if (model.Images.Length > 0)
+                //{
+                //    entity.Images = model.Images.FileName;
+                //    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", model.Images.FileName);
+                //    using (var stream = new FileStream(path, FileMode.Create))
+                //    {
+                //        await model.Images.CopyToAsync(stream);
+                //    }
+                //}
                 _lessonService.Create(entity);
                 return RedirectToAction("LessonList");
 

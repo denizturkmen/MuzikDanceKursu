@@ -15,17 +15,20 @@ namespace MuzikDansNetCore.Controllers
     public class HomeController : Controller
     {
         private ITeacherService _teacherService;
+     
 
         public HomeController(ITeacherService teacherService)
         {
             _teacherService = teacherService;
+           
         }
 
         public IActionResult Index()
         {
             return View(new TeacherListModel()
             {
-                Teachers = _teacherService.GetAll()
+                Teachers = _teacherService.GetAll(),
+               
             });
         }
 
