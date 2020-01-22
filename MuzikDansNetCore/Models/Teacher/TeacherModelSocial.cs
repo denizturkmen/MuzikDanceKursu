@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace MuzikDansNetCore.Models.Teacher
 {
-    public class TeacherModel
+    public class TeacherModelSocial
     {
         public int Id { get; set; }
 
@@ -24,6 +24,10 @@ namespace MuzikDansNetCore.Models.Teacher
         [DataType(DataType.Upload)]
         public IFormFile Image { get; set; }
 
+
+        [Required(ErrorMessage = "Description Alanı Zorunlu")]
+        public string Description { get; set; }
+
         [Required(ErrorMessage = "Facebokk Alanı Zorunlu")]
         public string FacebookAdress { get; set; }
 
@@ -32,6 +36,7 @@ namespace MuzikDansNetCore.Models.Teacher
 
         [Required(ErrorMessage = "Instagram Alanı Zorunlu")]
         public string InstagramAdress { get; set; }
+
 
         [Required(ErrorMessage = "Branch Alanı Zorunlu")]
         public int BranchId { get; set; }

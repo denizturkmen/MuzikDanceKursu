@@ -4,29 +4,39 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MuzikDansNetCore.Business.Abstract;
 using MuzikDansNetCore.EmailServices;
 using MuzikDansNetCore.Models.Email;
+using MuzikDansNetCore.Models.Teacher;
 
 
 namespace MuzikDansNetCore.Controllers
 {
     public class HomeController : Controller
     {
+        private ITeacherService _teacherService;
 
+        public HomeController(ITeacherService teacherService)
+        {
+            _teacherService = teacherService;
+        }
 
         public IActionResult Index()
         {
-            return View();
+            return View(new TeacherListModel()
+            {
+                Teachers = _teacherService.GetAll()
+            });
         }
 
         [HttpPost]
-        public IActionResult Contact(EmailModel model)
+        public IActionResult Contact(TeacherListModel model)
         {
-            string context = "<br> Name : " + model.Name;
-            context += "<br> Email : " + model.Email;
-            context += "<br> Message :" + model.Message;
+            string context = "<br> Name : " + model.EmailModel.Name;
+            context += "<br> Email : " + model.EmailModel.Email;
+            context += "<br> Message :" + model.EmailModel.Message;
 
-            if (EmailSender.SendMail(model.Email, model.Email, model.Message, context))
+            if (EmailSender.SendMail(model.EmailModel.Email, model.EmailModel.Email, model.EmailModel.Message, context))
             {
                 ViewBag.Message = "Success";
             }

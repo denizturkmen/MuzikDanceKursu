@@ -16,6 +16,11 @@ namespace MuzikDansNetCore.Entities
         public string TeacherName { get; set; }
         public string Education { get; set; }
         public string Image { get; set; }
+        public string Description { get; set; }
+        public string FacebookAdress { get; set; }
+        public string TwitterAdress { get; set; }
+        public string InstagramAdress { get; set; }
+
 
         public int BranchId { get; set; }
         public Branch Branch { get; set; }

@@ -1,5 +1,4 @@
-﻿@model EmailModel
-
+﻿@model TeacherListModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -97,7 +96,20 @@
 </section>
 
 <!-- CARD SECTİON -->
-<section id="Team" class="mt-4">
+
+<section id="Team" class="mt-5">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model.Teachers)
+            {
+                <partial name="_teacher" for="@item" />
+            }
+        </div>
+    </div>
+</section>
+
+
+@*<section id="Team" class="mt-4">
     <div class="container">
         <div class="row">
             <div class="col-md-3">
@@ -111,7 +123,7 @@
                         <div class="d-flex flex-row justify-content-center">
 
                             <div class="p-4">
-                                <a href="#"><i class="fab fa-facebook fa-2x "></i> </a>
+                                <a href=""><i class="fab fa-facebook fa-2x "></i> </a>
                             </div>
 
                             <div class="p-4">
@@ -125,84 +137,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-block team2">
-                        <img src="~/images//person.jpg" class="img-fluid rounded-circle my-4">
-                        <h3>John Doe</h3>
-                        <h5 class="text-muted">CEO</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-
-                        <div class="d-flex flex-row justify-content-center">
-
-                            <div class="p-4">
-                                <a href="#"><i class="fab fa-facebook fa-2x "></i> </a>
-                            </div>
-
-                            <div class="p-4">
-                                <a href="#"><i class="fab fa-twitter fa-2x "></i> </a>
-                            </div>
-
-                            <div class="p-4">
-                                <a href="#"><i class="fab fa-linkedin fa-2x "></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-block team3">
-                        <img src="~/images//person.jpg" class="img-fluid rounded-circle my-4">
-                        <h3>John Doe</h3>
-                        <h5 class="text-muted">CEO</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-
-                        <div class="d-flex flex-row justify-content-center">
-
-                            <div class="p-4">
-                                <a href="#"><i class="fab fa-facebook fa-2x "></i> </a>
-                            </div>
-
-                            <div class="p-4">
-                                <a href="#"><i class="fab fa-twitter fa-2x "></i> </a>
-                            </div>
-
-                            <div class="p-4">
-                                <a href="#"><i class="fab fa-linkedin fa-2x "></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-center">
-                    <div class="card-block team4">
-                        <img src="~/images//person.jpg" class="img-fluid rounded-circle my-4">
-                        <h3>John Doe</h3>
-                        <h5 class="text-muted">CEO</h5>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-
-                        <div class="d-flex flex-row justify-content-center">
-
-                            <div class="p-4">
-                                <a href="#"><i class="fab fa-facebook fa-2x "></i> </a>
-                            </div>
-
-                            <div class="p-4">
-                                <a href="#"><i class="fab fa-twitter fa-2x "></i> </a>
-                            </div>
-
-                            <div class="p-4">
-                                <a href="#"><i class="fab fa-linkedin fa-2x "></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+               </section>*@
 
 <!-- PORTFOLİA SECTİON -->
 <section id="portfolia" class="mt-5">
@@ -277,13 +212,13 @@
 <section id="contact" class="py-5">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-md-6">
                 <h2>CONTACT US</h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
                 <h4>ADDRESS</h4>
                 <P>Lorem Ipsum is simply dummy text of the printing and typesetting industry</P>
                 <h4>Email</h4>
-                <p>info@bootme.com</p>
+                <p>info@muzikanddans.com</p>
                 <h4>Phone</h4>
                 <p>555 444 333 22</p>
                 <div class="d-flex flex-row">
@@ -299,117 +234,117 @@
                 </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-md-6">
                 <form asp-controller="Home" asp-action="Contact" method="post">
-                <div class="form-group">
-                    <div class="input-group input-group-md">
-                        <span class="input-group-text">
-                            <i class="far fa-user fa-1x"></i>
-                        </span>
-                        <input  asp-for="Name" class="form-control" type="text" placeholder="Name">
+                    <div class="form-group">
+                        <div class="input-group input-group-md">
+                            <span class="input-group-text">
+                                <i class="far fa-user fa-1x"></i>
+                            </span>
+                            <input asp-for="EmailModel.Name" class="form-control" type="text" placeholder="Name">
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="input-group input-group-md">
-                        <span class="input-group-text">
-                            <i class="fas fa-envelope-open-text fa-1x"></i>
-                        </span>
-                        <input   asp-for="Email"  class="form-control" type="text" placeholder="EMail">
+                    <div class="form-group">
+                        <div class="input-group input-group-md">
+                            <span class="input-group-text">
+                                <i class="fas fa-envelope-open-text fa-1x"></i>
+                            </span>
+                            <input asp-for="EmailModel.Email" class="form-control" type="text" placeholder="EMail">
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="input-group input-group-md">
-                        <span class="input-group-text">
-                            <i class="far fa-envelope fa-1x"></i>
-                        </span>
-                        <textarea asp-for="Message" rows="8" class="form-control" placeholder="Message"></textarea>
+                    <div class="form-group">
+                        <div class="input-group input-group-md">
+                            <span class="input-group-text">
+                                <i class="far fa-envelope fa-1x"></i>
+                            </span>
+                            <textarea asp-for="EmailModel.Message" rows="8" class="form-control" placeholder="Message"></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <input type="submit" value="submit" class="btn btn-primary btn-block">
+                    <input type="submit" value="submit" class="btn btn-primary btn-block">
                 </form>
 
-            </div>
-
         </div>
-    </div>  
+
+    </div>
+    @*</div>*@
 </section>
 
 
-<script>
-    window.sr = new ScrollReveal();
-    sr.reveal('.headerAnimasyon',
-        {
-            duration: 3000,
-            origin: "bottom"
-        });
-    sr.reveal("#Features",
-        {
-            duration: 3000
-        });
-    sr.reveal(".historyLeft",
-        {
-            duration: 3000,
-            origin: "left",
-            viewFactor: 0.2
-        });
-    sr.reveal(".historyRight",
-        {
-            duration: 3000,
-            origin: "right",
-            viewFactor: 0.2
-        });
-    sr.reveal('.team1', {
-        duration: 3000,
-        origin: 'left',
-        viewFactor: 0.2
-    });
-    sr.reveal('.team2', {
-        duration: 3000,
-        delay: 1000,
-        origin: 'left',
-        viewFactor: 0.2
-    });
-    sr.reveal('.team3', {
-        duration: 3000,
-        delay: 2000,
-        origin: 'left',
-        viewFactor: 0.2
-    });
-    sr.reveal('.team4', {
-        duration: 3000,
-        delay: 3000,
-        origin: 'left',
-        viewFactor: 0.2
-    });
-</script>
-
-
-<script>
-    function SendEmail(){
-        $.ajax(
+@*<script>
+        window.sr = new ScrollReveal();
+        sr.reveal('.headerAnimasyon',
             {
-                type: "POST",
-                url: '@Url.Action("SendEmail", "MailSender")',
-                data: {
-                    Name: $("#name").val(),
-                    Email: $("#email").val(),
-                    Message: $("#message").val()
-                },
-                error: function (result) {
-                    console.log(result);
-                },
-                success: function (result) {
-                    alert(result);
-                    $("#name").val("");
-                    $("#email").val("");
-                    $("#message").val("");
-                }
+                duration: 3000,
+                origin: "bottom"
             });
-    }
-</script>
+        sr.reveal("#Features",
+            {
+                duration: 3000
+            });
+        sr.reveal(".historyLeft",
+            {
+                duration: 3000,
+                origin: "left",
+                viewFactor: 0.2
+            });
+        sr.reveal(".historyRight",
+            {
+                duration: 3000,
+                origin: "right",
+                viewFactor: 0.2
+            });
+        sr.reveal('.team1', {
+            duration: 3000,
+            origin: 'left',
+            viewFactor: 0.2
+        });
+        sr.reveal('.team2', {
+            duration: 3000,
+            delay: 1000,
+            origin: 'left',
+            viewFactor: 0.2
+        });
+        sr.reveal('.team3', {
+            duration: 3000,
+            delay: 2000,
+            origin: 'left',
+            viewFactor: 0.2
+        });
+        sr.reveal('.team4', {
+            duration: 3000,
+            delay: 3000,
+            origin: 'left',
+            viewFactor: 0.2
+        });
+    </script>*@
+
+
+@*<script>
+        function SendEmail(){
+            $.ajax(
+                {
+                    type: "POST",
+                    url: '@Url.Action("SendEmail", "MailSender")',
+                    data: {
+                        Name: $("#name").val(),
+                        Email: $("#email").val(),
+                        Message: $("#message").val()
+                    },
+                    error: function (result) {
+                        console.log(result);
+                    },
+                    success: function (result) {
+                        alert(result);
+                        $("#name").val("");
+                        $("#email").val("");
+                        $("#message").val("");
+                    }
+                });
+        }
+    </script>*@
 
 
 

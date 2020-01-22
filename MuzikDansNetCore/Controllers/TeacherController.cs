@@ -43,7 +43,7 @@ namespace MuzikDansNetCore.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(TeacherModel model)
+        public async Task<IActionResult> Create(TeacherModelSocial model)
         {
             if (ModelState.IsValid)
             {
@@ -51,7 +51,12 @@ namespace MuzikDansNetCore.Controllers
                 {
                     TeacherName = model.TeacherName,
                     Education = model.Education,
-                    BranchId = model.BranchId
+                    BranchId = model.BranchId,
+                    Description = model.Description,
+                    FacebookAdress = model.FacebookAdress,
+                    TwitterAdress = model.TwitterAdress,
+                    InstagramAdress = model.InstagramAdress
+
                 };
                 if (model.Image.Length > 0)
                 {
@@ -91,14 +96,19 @@ namespace MuzikDansNetCore.Controllers
                 TeacherName = entity.TeacherName,
                 Education = entity.Education,
                 Image = entity.Image,
-                BranchId = entity.BranchId
+                Description = entity.Description,
+                FacebookAdress = entity.FacebookAdress,
+                TwitterAdress = entity.TwitterAdress,
+                InstagramAdress = entity.InstagramAdress,
+                BranchId = entity.BranchId,
+
             };
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(TeacherModel model, IFormFile file)
+        public async Task<IActionResult> Edit(TeacherEdit model, IFormFile file)
         {
             if (ModelState.IsValid)
             {
@@ -112,6 +122,10 @@ namespace MuzikDansNetCore.Controllers
                 entity.TeacherName = model.TeacherName;
                 entity.Education = model.Education;
                 entity.BranchId = model.BranchId;
+                entity.Description = model.Description;
+                entity.FacebookAdress = model.FacebookAdress;
+                entity.TwitterAdress = model.TwitterAdress;
+                entity.InstagramAdress = model.InstagramAdress;
 
                 if (file != null)
                 {

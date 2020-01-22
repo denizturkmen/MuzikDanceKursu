@@ -1,4 +1,4 @@
-﻿@model TeacherModel
+﻿@model TeacherModelSocial
 @{
     ViewData["Title"] = "Create";
 }
@@ -38,6 +38,38 @@
                     <div class="col-md-8">
                         <input asp-for="Education" class="form-control" value="" />
                         <span asp-validation-for="Education" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label asp-for="Description" class="col-md-2 col-form-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="Description" class="form-control" value="" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label asp-for="FacebookAdress" class="col-md-2 col-form-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="FacebookAdress" class="form-control" value="" />
+                        <span asp-validation-for="FacebookAdress" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label asp-for="TwitterAdress" class="col-md-2 col-form-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="TwitterAdress" class="form-control" value="" />
+                        <span asp-validation-for="TwitterAdress" class="text-danger"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label asp-for="InstagramAdress" class="col-md-2 col-form-label"></label>
+                    <div class="col-md-8">
+                        <input asp-for="InstagramAdress" class="form-control" value="" />
+                        <span asp-validation-for="InstagramAdress" class="text-danger"></span>
                     </div>
                 </div>
 

@@ -44,6 +44,10 @@ namespace MuzikDansNetCore.Migrations
                     TeacherName = table.Column<string>(nullable: true),
                     Education = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    FacebookAdress = table.Column<string>(nullable: true),
+                    TwitterAdress = table.Column<string>(nullable: true),
+                    InstagramAdress = table.Column<string>(nullable: true),
                     BranchId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

@@ -5,7 +5,7 @@
 
 
 
-<div class="container pt-100 mb-5">
+<div class="pt-100 mb-5 mx-5">
     <div class="row">
         <div class="col-md-12">
             <h1>TeacherList</h1>
@@ -19,8 +19,12 @@
                 <tr>
                     <th>Id</th>
                     <th>Image</th>
-                    <th>Teacher Name</th>
-                    <th>Teacher Education</th>
+                    <th> Name</th>
+                    <th>Education</th>
+                    <th>Description</th>
+                    <th>FacebokkAdress</th>
+                    <th>TwitterkAdress</th>
+                    <th>InstagramAdress</th>
                     <th style="width: 180px"></th>  
                 </tr>
                 </thead>
@@ -34,6 +38,10 @@
                         </td>
                         <td>@teacher.TeacherName</td>
                         <td>@teacher.Education</td>
+                        <td>@teacher.Description</td>
+                        <td>@teacher.FacebookAdress</td>
+                        <td>@teacher.TwitterAdress</td>
+                        <td>@teacher.InstagramAdress</td>
                         <td>
                             <a href="/teacher/edit/@teacher.TeacherId" class="btn btn-primary btn-sm">Update</a> |
                             <form action="/teacher/delete/@teacher.TeacherId" method="post" style="display: inline">

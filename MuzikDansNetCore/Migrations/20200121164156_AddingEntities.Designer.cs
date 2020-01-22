@@ -9,14 +9,14 @@ using MuzikDansNetCore.DataAccessLayer.Concrete.EntityFrameWork;
 namespace MuzikDansNetCore.Migrations
 {
     [DbContext(typeof(MuzikDbContext))]
-    [Migration("20200106093831_AddingEntities")]
+    [Migration("20200121164156_AddingEntities")]
     partial class AddingEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("ProductVersion", "2.2.3-servicing-35854")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -58,11 +58,19 @@ namespace MuzikDansNetCore.Migrations
 
                     b.Property<int>("BranchId");
 
+                    b.Property<string>("Description");
+
                     b.Property<string>("Education");
+
+                    b.Property<string>("FacebookAdress");
 
                     b.Property<string>("Image");
 
+                    b.Property<string>("InstagramAdress");
+
                     b.Property<string>("TeacherName");
+
+                    b.Property<string>("TwitterAdress");
 
                     b.HasKey("TeacherId");
 
