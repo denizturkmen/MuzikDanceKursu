@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using MuzikDansNetCore.Business.Abstract;
 using MuzikDansNetCore.EmailServices;
 using MuzikDansNetCore.Models.Email;
+using MuzikDansNetCore.Models.Lesson;
 using MuzikDansNetCore.Models.Teacher;
 
 
@@ -15,12 +16,13 @@ namespace MuzikDansNetCore.Controllers
     public class HomeController : Controller
     {
         private ITeacherService _teacherService;
-     
+        private ILessonService _lessonService;
 
-        public HomeController(ITeacherService teacherService)
+
+        public HomeController(ITeacherService teacherService, ILessonService lessonService)
         {
             _teacherService = teacherService;
-           
+            _lessonService = lessonService;
         }
 
         public IActionResult Index()
@@ -28,7 +30,7 @@ namespace MuzikDansNetCore.Controllers
             return View(new TeacherListModel()
             {
                 Teachers = _teacherService.GetAll(),
-               
+                Lessons = _lessonService.GetAll()
             });
         }
 

@@ -1,11 +1,13 @@
-﻿@model LessonModel
+﻿@model Lesson
 
-<div class="col-md-3 text-center">
-    <div class="feature">
+<div class="col-md-3 text-center mb-5">
+    <div class="feature mb-5">
         <div class="feature-top">
-            <i class="http://@Model.Images fa-6x"></i>
+            <i class="@Model.Images fa-6x"></i>
             <h3 class="mt-3">@Model.LessonName</h3>
         </div>
-        <p style="width:200px;height:200px">@Model.Description</p>
+        <p>@Html.Raw(Model.Description)</p>
+      
     </div>
 </div>
+

@@ -22,7 +22,7 @@ namespace MuzikDansNetCore
     public class Startup
     {
 
-        //ddddd
+      
         public IConfiguration Configuration { get; set; }
         public Startup(IConfiguration configuration)
         {

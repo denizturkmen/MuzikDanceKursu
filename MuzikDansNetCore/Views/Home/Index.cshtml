@@ -26,7 +26,16 @@
 <section id="Features" class="mt-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-3 text-center">
+            
+            @foreach (var lesson in Model.Lessons)
+            {
+                <partial name="_features" for="@lesson"/>   
+            }
+            
+            
+            
+
+            @*<div class="col-md-3 text-center">
                 <div class="feature">
                     <div class="feature-top">
                         <i class="fas fa-guitar fa-6x"></i>
@@ -61,7 +70,7 @@
                     </div>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
                 </div>
-            </div>
+            </div>*@
         </div>
     </div>
 </section>
